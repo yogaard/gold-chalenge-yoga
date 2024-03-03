@@ -1,0 +1,67 @@
+<!-- views/edit-form.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container fonts">
+      <div class="card-header bg-primary">Edit Data</div>
+    </div>
+    <div class="container">
+      <form action="/update/:id" method="POST">
+        <label for="code_number" class="form-label">Code Unit</label>
+        <input
+          type="text"
+          class="form-control"
+          id="code_number"
+          name="code_number"
+        />
+
+        <label for="hour_meter" class="form-label">HM</label>
+        <input
+          type="number"
+          class="form-control"
+          id="hour_meter"
+          name="hour_meter"
+        />
+
+        <label for="date_in" class="form-label">date in</label>
+        <input type="text" class="form-control" id="date_in" name="date_in" />
+
+        <label for="time_in" class="form-label">time in</label>
+        <input type="text" class="form-control" id="time-in" name="time_in" />
+
+        <label for="time_out" class="form-label">time out</label>
+        <input type="text" class="form-control" id="time_out" name="time_out" />
+
+        <label for="no_WO" class="form-label">work order</label>
+        <input type="text" class="form-control" id="no_WO" name="no_WO" />
+
+        <label for="trouble" class="form-label">trouble</label>
+        <input type="text" class="form-control" id="trouble" name="trouble" />
+
+        <label for="pic" class="form-label">PIC</label>
+        <input type="text" class="form-control" id="pic" name="pic" />
+
+        <label for="duration" class="form-label">duration</label>
+        <input type="text" class="form-control" id="duration" name="duration" />
+
+        <button type="submit" class="btnsubmit">simpan</button>
+      </form>
+    </div>
+  </body>
+</html>
