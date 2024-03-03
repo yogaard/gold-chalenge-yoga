@@ -22,7 +22,7 @@
       <div class="card-header bg-primary">Edit Data</div>
     </div>
     <div class="container">
-      <form action="/update/:id" method="POST">
+      <form action="/update/:id" method="post">
         <label for="code_number" class="form-label">Code Unit</label>
         <input
           type="text"
@@ -43,13 +43,13 @@
         <input type="text" class="form-control" id="date_in" name="date_in" />
 
         <label for="time_in" class="form-label">time in</label>
-        <input type="text" class="form-control" id="time-in" name="time_in" />
+        <input type="text" class="form-control" id="time_in" name="time_in" />
 
         <label for="time_out" class="form-label">time out</label>
         <input type="text" class="form-control" id="time_out" name="time_out" />
 
         <label for="no_WO" class="form-label">work order</label>
-        <input type="text" class="form-control" id="no_WO" name="no_WO" />
+        <input type="number" class="form-control" id="no_WO" name="no_WO" />
 
         <label for="trouble" class="form-label">trouble</label>
         <input type="text" class="form-control" id="trouble" name="trouble" />
