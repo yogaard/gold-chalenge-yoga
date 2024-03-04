@@ -43,25 +43,25 @@ app.get("/form", (req, res) => {
 });
 
 // form edit
-app.put("/put/data_unit/:id", async (req, res) => {
-  const userId = req.params.userId;
-  try {
-    const query = {
-      text: "SELECT * FROM data_unit WHERE id = $1",
-      values: [userId],
-    };
-    const result = await pool.query(query);
-    if (result.rows.length > 0) {
-      const user = result.rows[0];
-      res.render("edit_form", { user });
-    } else {
-      res.status(404).send("User not found");
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    res.status(500).send("Internal Server Error");
-  }
-});
+// app.put("/put/data_unit/:id", async (req, res) => {
+//   const userId = req.params.userId;
+//   try {
+//     const query = {
+//       text: "SELECT * FROM data_unit WHERE id = $1",
+//       values: [userId],
+//     };
+//     const result = await pool.query(query);
+//     if (result.rows.length > 0) {
+//       const user = result.rows[0];
+//       res.render("edit_form", { user });
+//     } else {
+//       res.status(404).send("User not found");
+//     }
+//   } catch (error) {
+//     console.error("Error:", error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
 
 // get form edit
 // server.js
@@ -182,52 +182,53 @@ app.post("/post/data_unit", async (req, res) => {
     },
   });
 });
-// edit data
-// app.put("/put/data_unit/:id", async (req, res) => {
-//   const { id } = req.params;
-//   const {
-//     code_number,
-//     hour_meter,
-//     date_in,
-//     time_in,
-//     time_out,
-//     no_WO,
-//     trouble,
-//     pic,
-//     duration,
-//   } = req.body;
 
-//   await db("data_unit")
-//     .where({
-//       id: id,
-//     })
-//     .update({
-//       code_number: code_number,
-//       hour_meter: hour_meter,
-//       date_in: date_in,
-//       time_in: time_in,
-//       time_out: time_out,
-//       no_WO: no_WO,
-//       trouble: trouble,
-//       pic: pic,
-//       duration: duration,
-//     });
-//   return res.json({
-//     messages: "Data berhasil diupdate",
-//     data: {
-//       id: id,
-//       code_number: code_number,
-//       hour_meter: hour_meter,
-//       date_in: date_in,
-//       time_in: time_in,
-//       time_out: time_out,
-//       no_WO: no_WO,
-//       trouble: trouble,
-//       pic: pic,
-//       duration: duration,
-//     },
-//   });
-// });
+// edit data
+app.put("/put/data_unit/:id", async (req, res) => {
+  const { id } = req.params;
+  const {
+    code_number,
+    hour_meter,
+    date_in,
+    time_in,
+    time_out,
+    no_WO,
+    trouble,
+    pic,
+    duration,
+  } = req.body;
+
+  await db("data_unit")
+    .where({
+      id: id,
+    })
+    .update({
+      code_number: code_number,
+      hour_meter: hour_meter,
+      date_in: date_in,
+      time_in: time_in,
+      time_out: time_out,
+      no_WO: no_WO,
+      trouble: trouble,
+      pic: pic,
+      duration: duration,
+    });
+  return res.json({
+    messages: "Data berhasil diupdate",
+    data: {
+      id: id,
+      code_number: code_number,
+      hour_meter: hour_meter,
+      date_in: date_in,
+      time_in: time_in,
+      time_out: time_out,
+      no_WO: no_WO,
+      trouble: trouble,
+      pic: pic,
+      duration: duration,
+    },
+  });
+});
 
 app.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
